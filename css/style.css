@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.nao-selecionavel {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+h1, h2, h3, p, a, ul, ol, li, td {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-size: 2rem;
+}
+
+ul, ol, li, a {
+    text-decoration: none;
+    list-style: none;
+}
+
+.noto-sans-jp {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+}
+
+body {
+    background-color: black;
+}
+
+/* #container {
+    width: 900px;
+} */
+
+header {
+    padding-top: 20px;
+    height: 87vh;
+    background-image: radial-gradient(circle 200px at 100% 37%, rgb(2, 6, 94), rgba(255, 0, 0, 0)), radial-gradient(circle 170px at 90% 32%, rgba(47, 97, 184, 0.593), rgba(255, 0, 0, 0)), url(../img/ninajirachi-show4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title-header {
+    display: grid;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+#ht-2 {
+    font-weight: 700;
+    margin: -10px -3px;
+    transform: scaleY(0.6);
+}
+
+#title-header img {
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    width: 80vw;
+    max-width: 800px;
+    z-index: 2;
+    transition: filter 0.2s ease;
+}
+
+#title-header img:hover {
+    animation: glitch-anim 0.7s infinite;
+}
+
+@keyframes glitch-anim {
+    0% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
+    20% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+    40% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
+    60% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+    80% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
+}
+
+#ht-3 {
+    line-height: 0;
+    display: flex;
+    justify-content: right;
+    margin: 15px -65px;
+    rotate: -7deg;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.782);
+    z-index: 3;
+    filter: drop-shadow(0 0 5px rgb(255, 39, 39)) drop-shadow(0 0 5px rgb(255, 39, 39)) drop-shadow(0 0 5px rgb(255, 169, 169));
+    transition: 0.2s ease;
+}
+
+#menu-header {
+    margin: 20px;
+    display: grid;
+    justify-items: right;
+    text-align: right;
+}
+
+#menu-header a {
+    filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+    text-shadow: 0 0 7px rgba(0, 0, 0, 0.578);
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+#menu-header li  {
+    width: fit-content;
+    transition: 0.23s ease;
+    line-height: 2.2rem;
+}
+
+#menu-header li:hover  {
+    transform: translateX(-5px);
+    transition: 0.23s ease;
+}
+
+#main-container h1, h2, h3, p, table, li {
+    margin: 0 5vw;
+}
+
+.div-nina-intro {
+    padding-top: 20px;
+    background-image: linear-gradient(rgba(13, 18, 116, 0.901) 0%, rgba(255, 0, 0, 0) 55%), url(../img/nina-model2.jpg);
+    background-position: 0 70%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 250px;
+    height: 50vh;
+    max-height: 50vh;
+}
+
+.div-presentation {
+    padding-top: 20px;
+    background-image: radial-gradient(circle 500px, rgba(82, 85, 131, 0.561), rgba(1, 0, 3, 0.956)), url(../img/nina-model3.jpg);
+    background-size: 100%;
+    background-position: 0 40%;
+    background-repeat: no-repeat;
+}
+
+.div-presentation p {
+    padding-bottom: 25px;
+}
+
+@media screen and (width <= 945px) {
+    .noto-sans-jp {
+        font-size: 1.2rem;
+        transition: 0.2s ease;
+    }
+    #ht-3 {
+        margin: 15px -25px;
+    }   
+}
