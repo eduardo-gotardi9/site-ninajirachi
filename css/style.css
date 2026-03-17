@@ -1,3 +1,7 @@
+:root {
+    --div-pad: 40px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +27,6 @@ ul, ol, li, a {
 .noto-sans-jp {
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
-  /* font-weight: <weight>; */
   font-style: normal;
 }
 
@@ -31,13 +34,10 @@ body {
     background-color: black;
 }
 
-/* #container {
-    width: 900px;
-} */
 
 header {
     padding-top: 20px;
-    height: 87vh;
+    height: 85vh;
     background-image: radial-gradient(circle 200px at 100% 37%, rgb(2, 6, 94), rgba(255, 0, 0, 0)), radial-gradient(circle 170px at 90% 32%, rgba(47, 97, 184, 0.593), rgba(255, 0, 0, 0)), url(../img/ninajirachi-show4.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -57,33 +57,12 @@ header {
 }
 
 #title-header img {
-    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
     width: 80vw;
     max-width: 800px;
     z-index: 2;
+    animation: glitch-anim 1s infinite;
     transition: filter 0.2s ease;
-}
-
-#title-header img:hover {
-    animation: glitch-anim 0.7s infinite;
-}
-
-@keyframes glitch-anim {
-    0% {
-        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
-    }
-    20% {
-        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-    }
-    40% {
-        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
-    }
-    60% {
-        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-    }
-    80% {
-        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
-    }
 }
 
 #ht-3 {
@@ -107,10 +86,16 @@ header {
 }
 
 #menu-header a {
-    filter: drop-shadow(0 0 10px rgb(255, 255, 255));
-    text-shadow: 0 0 7px rgba(0, 0, 0, 0.578);
+    filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(0.5px 0.5px 1px rgba(0, 0, 0, 0.76));
+    /* text-shadow: 0 0 7px rgba(0, 0, 0, 0.578); */
     font-weight: 600;
     font-size: 1.7rem;
+    transition: filter 0.4s ease;
+}
+
+#menu-header a:hover {
+    filter: drop-shadow(0 0 10px rgb(255, 255, 255)) drop-shadow(0.5px 0.5px 1px rgba(0, 0, 0, 0.289));
+    transition: filter 1s ease;
 }
 
 #menu-header li  {
@@ -124,31 +109,312 @@ header {
     transition: 0.23s ease;
 }
 
+.aurora-fx {
+  position: relative;
+  display: inline-block;
+  color: white;
+  z-index: 1;
+  -webkit-text-fill-color: transparent;
+  background: 
+    linear-gradient(110deg, transparent 30%, rgb(89, 177, 235), rgb(255, 199, 87), rgb(220, 87, 87), rgb(195, 97, 233), transparent 70%) no-repeat,
+    linear-gradient(white, white);
+  background-size: 200% 100%, 100% 100%;
+  background-position: 150% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+  text-shadow: 0 0 0;
+}
+
+.aurora-fx::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgb(89, 177, 235), rgb(255, 199, 87), rgb(220, 87, 87), rgb(195, 97, 233), transparent 70%) no-repeat;
+  background-size: 200% 100%, 100% 100%;;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(7px);
+  opacity: 0.8;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+}
+
+@keyframes brilhinho {
+  0% {
+    background-position: 150% 0, 0 0;
+  }
+  70% {
+    background-position: -150% 0, 0 0;
+  }
+  100% {
+    background-position: -150% 0, 0 0;
+  }
+}
+
+.aurora-fx-home:hover {
+  position: relative;
+  display: inline-block;
+  color: white;
+  /* z-index: 1; */
+  -webkit-text-fill-color: transparent;
+  background: 
+    linear-gradient(110deg, transparent 30%, rgb(255, 208, 127), rgb(255, 207, 112), rgb(255, 204, 121), rgb(255, 212, 118), transparent 70%) no-repeat,
+    linear-gradient(white, white);
+  background-size: 200% 100%, 100% 100%;
+  background-position: 150% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+  text-shadow: 0 0 0;
+}
+
+.aurora-fx-home:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgb(255, 208, 127), rgb(255, 207, 112), rgb(255, 204, 121), rgb(255, 212, 118), transparent 70%) no-repeat;
+  background-size: 200% 100%, 100% 100%;;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(7px);
+  opacity: 0.8;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+}
+
+.aurora-fx-site:hover {
+  position: relative;
+  display: inline-block;
+  color: white;
+  /* z-index: 1; */
+  -webkit-text-fill-color: transparent;
+  background: 
+    linear-gradient(110deg, transparent 30%, rgb(89, 177, 235), rgb(82, 145, 255), rgb(71, 143, 225), rgb(72, 174, 253), transparent 70%) no-repeat,
+    linear-gradient(white, white);
+  background-size: 200% 100%, 100% 100%;
+  background-position: 150% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+  text-shadow: 0 0 0;
+}
+
+.aurora-fx-site:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgb(89, 177, 235), rgb(82, 145, 255), rgb(71, 143, 225), rgb(72, 174, 253), transparent 70%) no-repeat;
+  background-size: 200% 100%, 100% 100%;;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(7px);
+  opacity: 0.8;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+}
+
+.aurora-fx-yt:hover {
+  position: relative;
+  display: inline-block;
+  color: white;
+  /* z-index: 1; */
+  -webkit-text-fill-color: transparent;
+  background: 
+    linear-gradient(110deg, transparent 30%, rgb(255, 75, 75), rgb(255, 74, 74), rgb(255, 82, 82), rgb(255, 90, 90), transparent 70%) no-repeat,
+    linear-gradient(white, white);
+  background-size: 200% 100%, 100% 100%;
+  background-position: 150% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+  text-shadow: 0 0 0;
+}
+
+.aurora-fx-yt:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgb(255, 75, 75), rgb(255, 74, 74), rgb(255, 82, 82), rgb(255, 90, 90), transparent 70%) no-repeat;
+  background-size: 200% 100%, 100% 100%;;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(7px);
+  opacity: 0.8;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+}
+
+.aurora-fx-sptf:hover {
+  position: relative;
+  display: inline-block;
+  color: white;
+  /* z-index: 1; */
+  -webkit-text-fill-color: transparent;
+  background: 
+    linear-gradient(110deg, transparent 30%, rgb(89, 235, 123), rgb(26, 198, 29), rgb(35, 213, 59), rgb(97, 233, 124), transparent 70%) no-repeat,
+    linear-gradient(white, white);
+  background-size: 200% 100%, 100% 100%;
+  background-position: 150% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+  text-shadow: 0 0 0;
+}
+
+.aurora-fx-sptf:hover::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  background: linear-gradient(110deg, transparent 30%, rgb(89, 235, 123), rgb(26, 198, 29), rgb(35, 213, 59), rgb(97, 233, 124), transparent 70%) no-repeat;
+  background-size: 200% 100%, 100% 100%;;
+  background-position: 150% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(7px);
+  opacity: 0.8;
+  animation: brilhinho 3.8s ease var(--delay, 0s) infinite;
+}
+
 #main-container h1, h2, h3, p, table, li {
-    margin: 0 5vw;
+    margin: 0 12vw;
+}
+
+div h2 {
+    padding-bottom: 40px;
 }
 
 .div-nina-intro {
-    padding-top: 20px;
+    padding-top: var(--div-pad);
+    padding-bottom: var(--div-pad);
     background-image: linear-gradient(rgba(13, 18, 116, 0.901) 0%, rgba(255, 0, 0, 0) 55%), url(../img/nina-model2.jpg);
     background-position: 0 70%;
     background-size: 100%;
     background-repeat: no-repeat;
+    background-size: cover;
     min-height: 250px;
     height: 50vh;
     max-height: 50vh;
 }
 
 .div-presentation {
-    padding-top: 20px;
+    padding-top: var(--div-pad);
+    padding-bottom: var(--div-pad);
     background-image: radial-gradient(circle 500px, rgba(82, 85, 131, 0.561), rgba(1, 0, 3, 0.956)), url(../img/nina-model3.jpg);
-    background-size: 100%;
+    /* background-size: 100%; */
     background-position: 0 40%;
     background-repeat: no-repeat;
+    background-size:cover;
+
 }
 
 .div-presentation p {
-    padding-bottom: 25px;
+    padding-bottom: 20px;
+}
+
+.div-nina-imgs {
+    padding-top: var(--div-pad);
+    padding-bottom: var(--div-pad);
+    background-image: radial-gradient(circle 500px, rgba(42, 44, 82, 0.755), rgba(1, 0, 3, 0.917)), url(../img/signal-tower.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.div-nina-imgs img {
+    border-radius: 10px;
+    margin: 5px 10px 5px 0;
+    width: 24vw;
+    min-width: 200px;
+    transition: 0.4s ease;
+}
+
+.div-nina-imgs img:hover {
+    transform: translateY(-10px);
+    transition: 0.5s ease;
+}
+
+.div-nina-imgs td {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.div-album-info {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.811);
+    padding-top: var(--div-pad);
+    padding-bottom: var(--div-pad);
+    background-image: radial-gradient(circle 700px, rgba(0, 0, 0, 0.527), rgba(1, 0, 3, 0.891)), url(../img/nina-model5.jpg);
+    background-size: 100%;
+    background-position: 0 35%;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.div-album-msc {
+    padding-top: var(--div-pad);
+    padding-bottom: var(--div-pad);
+    display: inline-flex;
+    /* justify-items: start; */
+    background-image: radial-gradient(circle 700px, rgba(13, 37, 146, 0.168), rgba(13, 0, 38, 0.415));
+    background-size: 100%;
+    /* background-position: 0 35%; */
+    background-size:cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.div-album-msc img {
+    margin: 5px 25px;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    max-width: 300px;
+    max-height: 300px;  
+}
+
+/* .msc-list {
+    width: 100%;
+} */
+
+footer {
+    height: 60px;
+    background-color: rgba(0, 4, 31, 0.427);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-p {
+    color: rgba(255, 255, 255, 0.705);
+    font-size: 0.85rem;
+    font-weight: 300;
+}
+
+@media screen and (width <= 865px) {
+    .div-presentation {
+        background-position: 43% 40%;
+    }
+    .div-nina-imgs {
+        background-position: 70% 40%;
+    }
+    .div-album-info {
+        background-position: 45% 40%;
+    }
 }
 
 @media screen and (width <= 945px) {
@@ -159,4 +425,22 @@ header {
     #ht-3 {
         margin: 15px -25px;
     }   
+}
+
+@keyframes glitch-anim {
+    0% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
+    20% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+    40% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
+    60% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.35));
+    }
+    80% {
+        filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0));
+    }
 }
